@@ -105,7 +105,7 @@ class AuthorizationsController extends Controller
         // 根据 code 获取微信 openid 和 session_key
         $miniProgram = \EasyWeChat::miniProgram();
         $data = $miniProgram->auth->session($code);
-dd($data);
+
         // 如果结果错误，说明 code 已过期或不正确，返回 401 错误
         if (isset($data['errcode'])) {
             throw new AuthenticationException('code 不正确');
